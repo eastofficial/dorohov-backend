@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
+        <meta name="author" content="">
         <title>Главная</title>
         <link href="/template/css/bootstrap.min.css" rel="stylesheet">
         <link href="/template/css/font-awesome.min.css" rel="stylesheet">
@@ -23,8 +24,6 @@
         <link rel="apple-touch-icon-precomposed" href="/template/images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
 
-    
-
     <body>
         <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
@@ -33,14 +32,17 @@
                         <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-phone"></i> +79996021409</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i> +9999999999</a></li>
                                     <li><a href="#"><i class="fa fa-envelope"></i> androsov.dima2013@yandex.ru</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="social-icons pull-right">
-
+                                <ul class="nav navbar-nav">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -59,8 +61,12 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">                                    
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
-                                    <li><a href="#"><i class="fa fa-user"></i> Аккаунт</a></li>
-                                    <li><a href="#"><i class="fa fa-lock"></i> Вход</a></li>
+                                    <?php if (User::isGuest()): ?>                                        
+                                        <li><a href="/user/login/"><i class="fa fa-lock"></i> Вход</a></li>
+                                    <?php else: ?>
+                                        <li><a href="/cabinet/"><i class="fa fa-user"></i> Аккаунт</a></li>                                    
+                                        <li><a href="/user/logout/"><i class="fa fa-unlock"></i> Выход</a></li>                                        
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
@@ -89,9 +95,6 @@
                                             <li><a href="/cart/">Корзина</a></li> 
                                         </ul>
                                     </li> 
-                                    <!-- <li><a href="#">Блог</a></li>  -->
-                                    <!-- <li><a href="#">О магазине</a></li> -->
-                                    <!-- <li><a href="#">Контакты</a></li> -->
                                 </ul>
                             </div>
                         </div>
