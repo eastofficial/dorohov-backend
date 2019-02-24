@@ -5,7 +5,8 @@ class ProductController
     
     public function actionList()
     {
-        echo " ProductController actionList";
+        require_once(ROOT . 'views/product/view.php');
+
         return true;
     }
     
